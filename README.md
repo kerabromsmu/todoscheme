@@ -1,5 +1,22 @@
-# todoscheme
+# TODO Scheme
 A small arduino-based device with a 2"9 e-paper screen with a 3D printed casing
+
+## Components
+
+* ESP32-C3 mini board
+* WeAct 2"9 e-paper screen panel
+* 3D printed casing
+
+## Code
+
+* Use Arduino IDE to upload the code to the device via the USB-C cable plugged into the ESP32-C3.
+
+### Dependencies
+
+* GXEPD2
+* Adafruit
+
+## Casing
 
 A Sketchup model for the casing:
 
