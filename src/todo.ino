@@ -58,7 +58,7 @@ void textFullScreen(String text) {
 void loop() {
   if (Serial.available()) {
     String inputText = Serial.readString();
-    inputText.trim();a
+    inputText.trim();
     textFullScreen(inputText);
   }
 }
