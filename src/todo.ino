@@ -30,10 +30,8 @@ void setup() {
 
   display.init(115200, true, 50, false);
   display.hibernate();
+  Serial.println("Ready");
 }
-
-const char HelloWorld[] = "Hello World!";
-const char HelloWeACtStudio[] = "WeAct Studio";
 
 void textFullScreen(String text) {
   display.setRotation(3);
@@ -45,11 +43,12 @@ void textFullScreen(String text) {
   // center the bounding box by transposition of the origin:
   uint16_t x = ((display.width() - tbw) / 2) - tbx;
   uint16_t y = ((display.height() - tbh) / 2) - tby;
+  Serial.printf("tbx: %d; tby: %d; tbw: %d, tbh: %d; x: %d; y: %d; width: %d; height: %d\n", tbx, tby, tbw, tbh, x, y, display.width(), display.height());
   display.setFullWindow();
   display.firstPage();
   do {
     display.fillScreen(GxEPD_WHITE);
-    display.setCursor(x, y - tbh);
+    display.setCursor(x, y);
     display.print(text);
 //    display.setTextColor(display.epd2.hasColor ? GxEPD_RED : GxEPD_BLACK);
   } while (display.nextPage());
@@ -59,6 +58,8 @@ void loop() {
   if (Serial.available()) {
     String inputText = Serial.readString();
     inputText.trim();
+    inputText.replace(";;", "\n");
+    Serial.println(inputText);
     textFullScreen(inputText);
   }
 }
