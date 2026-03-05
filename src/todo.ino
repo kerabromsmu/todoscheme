@@ -37,11 +37,12 @@ void textFullScreen(String text) {
   display.setRotation(3);
   display.setFont(&FreeMonoBold9pt7b);
   display.setTextColor(GxEPD_BLACK);
-  int16_t tbx, tby;
-  uint16_t tbw, tbh;
+  int16_t tbx, tby, bbx, bby;
+  uint16_t tbw, tbh, bbw, bbh;
+  display.getTextBounds("text", 0, 0, &bbx, &bby, &bbw, &bbh);
   display.getTextBounds(text, 0, 0, &tbx, &tby, &tbw, &tbh);
   // center the bounding box by transposition of the origin:
-  uint16_t x = ((display.width() - tbw) / 2) - tbx;
+  uint16_t x = tbh<=bbh ? ((display.width() - tbw) / 2) - tbx : 0;
   uint16_t y = ((display.height() - tbh) / 2) - tby;
   Serial.printf("tbx: %d; tby: %d; tbw: %d, tbh: %d; x: %d; y: %d; width: %d; height: %d\n", tbx, tby, tbw, tbh, x, y, display.width(), display.height());
   display.setFullWindow();
