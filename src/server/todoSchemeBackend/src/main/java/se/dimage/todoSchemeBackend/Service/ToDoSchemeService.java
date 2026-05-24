@@ -2,6 +2,7 @@ package se.dimage.todoSchemeBackend.Service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import se.dimage.todoSchemeBackend.Model.Entry;
 import se.dimage.todoSchemeBackend.Repository.ToDoSchemeRepository;
 
 @Service
@@ -12,7 +13,9 @@ public class ToDoSchemeService {
 
     public static boolean saveText(String text) {
 
-        //repository.save();
+        Entry entry = repository.findByName(Entry.THE_ONE_NAME).stream().findFirst().orElse(new Entry());
+        entry.setText(text);
+        repository.save(entry);
         return false;
     }
 }

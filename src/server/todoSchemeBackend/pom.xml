@@ -29,6 +29,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+        <start-class>se.dimage.todoSchemeBackend.TodoSchemeBackendApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>

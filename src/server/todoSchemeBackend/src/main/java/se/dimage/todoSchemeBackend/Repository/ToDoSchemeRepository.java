@@ -3,6 +3,8 @@ package se.dimage.todoSchemeBackend.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import se.dimage.todoSchemeBackend.Model.Entry;
 
-public interface ToDoSchemeRepository extends JpaRepository<Entry, Long> {
+import java.util.List;
 
+public interface ToDoSchemeRepository extends JpaRepository<Entry, Long> {
+    public List<Entry> findByName(String name);
 }

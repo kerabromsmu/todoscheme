@@ -1,20 +1,21 @@
 package se.dimage.todoSchemeBackend.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@Table(name = "entries")
 public class Entry {
-
-    final static String THE_ONE_NAME = "TheOne";
+    public final static String THE_ONE_NAME = "TheOne";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,5 +25,7 @@ public class Entry {
 
     private String text;
 
+    @CreationTimestamp
+    @UpdateTimestamp
     private Timestamp timestamp;
 }

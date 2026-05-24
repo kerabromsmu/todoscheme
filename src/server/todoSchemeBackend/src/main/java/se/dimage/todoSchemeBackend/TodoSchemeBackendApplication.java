@@ -6,8 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TodoSchemeBackendApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TodoSchemeBackendApplication.class, args);
+	@SuppressWarnings("CallToPrintStackTrace")
+    public static void main(String[] args) {
+        try {
+            SpringApplication.run(TodoSchemeBackendApplication.class, args);
+        } catch (Throwable ex) {
+            ex.printStackTrace();
+        }
 	}
 
 }
