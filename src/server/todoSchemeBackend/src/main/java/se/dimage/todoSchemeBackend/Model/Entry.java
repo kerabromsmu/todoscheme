@@ -26,6 +26,8 @@ public class Entry {
     private String text;
 
     @CreationTimestamp
+    private Timestamp createTimestamp;
+
     @UpdateTimestamp
-    private Timestamp timestamp;
+    private Timestamp updateTimestamp;
 }

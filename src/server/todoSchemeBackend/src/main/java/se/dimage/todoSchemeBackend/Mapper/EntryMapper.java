@@ -9,10 +9,12 @@ import se.dimage.todoSchemeBackend.Model.Entry;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface EntryMapper {
     @Mapping(source = "entry.text", target = "text")
-    @Mapping(source = "entry.timestamp", target = "timestamp")
+    @Mapping(source = "entry.createTimestamp", target = "createTimestamp")
+    @Mapping(source = "entry.updateTimestamp", target = "updateTimestamp")
     EntryDto toDto(Entry entry);
 
     @Mapping(source = "entryDto.text", target = "text")
-    @Mapping(source = "entryDto.timestamp", target = "timestamp")
+    @Mapping(source = "entryDto.createTimestamp", target = "createTimestamp")
+    @Mapping(source = "entryDto.updateTimestamp", target = "updateTimestamp")
     Entry toEntity(EntryDto entryDto);
 }

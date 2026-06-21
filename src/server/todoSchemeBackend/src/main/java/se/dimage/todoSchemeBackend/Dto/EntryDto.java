@@ -11,5 +11,6 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class EntryDto {
     private String text;
-    private Timestamp timestamp;
+    private Timestamp createTimestamp;
+    private Timestamp updateTimestamp;
 }

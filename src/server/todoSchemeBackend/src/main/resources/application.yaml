@@ -5,7 +5,23 @@ spring:
   config:
     import: optional:file:.env[.properties]
 
+  devtools:
+    restart:
+      enabled: false
+
 server:
   port: 8080
-#  compression.enabled: true
-#  http2.enabled: true
+  compression.enabled: true
+  http2.enabled: true
+
+kind: Application
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          devtools:
+            restart: OFF
+
+#hibernate.transaction.jta.platform:
